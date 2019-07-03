@@ -12,7 +12,7 @@ import javax.persistence.*;
 
 @Entity
 @Table( name="user",
-        uniqueConstraints={@UniqueConstraint(columnNames={"email"})})
+        uniqueConstraints={@UniqueConstraint(columnNames={"login"})})
 public class User {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
@@ -22,11 +22,11 @@ public class User {
     private String firstName;
     @Column(name = "last_name", nullable = false)
     private String lastName;
-    @Column(nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
-    @Column(name = "login")
+    @Column(name = "login", nullable = false)
     private String login;
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
 
     public User(String firstName, String lastName, String email, String login, String password) {
